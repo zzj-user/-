@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var arr=["亮亮","然然","东东"];
+    //for
+    // for(var i=0;i<arr.length;i++){
+    //   console.log(`${arr[i]} - 到！`)
+    // }
+    //forEach
+    // arr.forEach(function(elem){
+    //   console.log(`${elem} - 到！`)
+    // })
+    // arr.forEach(elem=>console.log(`${elem} - 到！`));
+    //for of
+    for(var sname of arr){
+      console.log(`${sname} - 到!`)
+    }
+    
+    //需求: 定义函数add，可计算任意多个数字的和
+    function add(           ){
+    // arguments[           ].length
+    //            0  1  2 ...
+      var total=0;
+      //for
+      // for(var i=0;i<arguments.length;i++){
+      //   total+=arguments[i];
+      // }
+      //forEach —— 错
+      // arguments.forEach(function(elem){
+      //   total+=elem
+      // })//报错: arguments.forEach is not a function
+      //for of
+      for(var num of arguments){
+        total+=num
+      }
+      return total;
+    }
+    console.log(add(1,2,3));//6
+    console.log(add(1,2,3,4,5));//15
+  </script>
+</body>
+</html>

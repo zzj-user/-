@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var lilei={
+      sname:"Li Lei",
+      friends:["亮亮","然然","东东"],
+      intr:function(){
+        //Li Lei认识亮亮
+        //Li Lei认识然然
+        //Li Lei认识东东
+        //遍历friends数组中每个人名
+        //因为这个this属于intr()，而将来intr()是被lilei.intr()调用的。所以这个this->lilei，是正确的！
+        this.friends.forEach(
+          function(elem){
+            //因为这个this属于回调函数内部，而回调函数定义时前边即没有点，又没有new，且还不是我们自己调用，是forEach()函数自动调用，所以，回调函数中的this默认->window，本例中就是错误的！
+            console.log(`${this.sname} 认识 ${elem}`)
+          }
+        )
+      }
+    }
+    lilei.intr();
+  </script>
+</body>
+</html>
